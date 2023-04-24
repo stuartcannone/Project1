@@ -1,0 +1,11 @@
+<h1>All Customers</h1>
+
+<% @customers.each do |customer| %>
+    
+    <ul>
+        <li>Name: <%= link_to customer.name, customer %></li>
+        <li>Email: <%= customer.email %></li>
+        <li>Phone: <%= customer.phone %></li>
+        <li>Interested in: <%= customer.boattype %></li>
+    </ul>
+<% end %>

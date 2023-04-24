@@ -10,6 +10,17 @@
   </head>
 
   <body>
+  <div class="nav">
+  <nav>
+  <%= link_to "All Customers", customers_path %>
+  <%= link_to "New Customer", new_customer_path %>
+  |
+
+  </nav>
+  </div>
+
+  <div class="container">
     <%= yield %>
+  </div>
   </body>
 </html>
