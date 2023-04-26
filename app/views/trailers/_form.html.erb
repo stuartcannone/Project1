@@ -1,0 +1,33 @@
+<%= form_for @trailer do |f| %>
+    <%= f.label :brand  %>
+    <%= f.text_field :brand  %>
+
+    <%= f.label :model  %>
+    <%= f.text_field :model  %>
+
+    <%= f.label :modelyear, 'Year'  %>
+    <%= f.text_field :modelyear, :placeholder => '2023'  %>
+
+    <%= f.label :colour  %>
+    <%= f.text_field :colour  %>
+
+    <%= f.label :usage  %>
+    <%= f.select(:usage, options_for_select( [["PWC", "PWC"],["Boat", "Boat"]]))  %>
+
+    <%= f.label :material  %>
+    <%= f.select(:material, options_for_select( [["Galvanised Steel", "Galvanised Steel"],["Powder Coat Steel ", "Powder Coat Steel"], ["Aluminium", "Aluminium"]]))%>
+
+    <%= f.label :image  %>
+    <%= f.text_field :image %>
+
+    <%= f.label :pagelink  %>
+    <%= f.text_field :pagelink %>
+
+    <%= f.label :costprice  %>
+    <%= f.number_field :costprice, step: 0.01, precision: 2 %>
+
+    <%= f.label :retailprice  %>
+    <%= f.number_field :retailprice, step: 0.01, precision: 2 %>
+
+    <%= f.submit %>
+<% end %>

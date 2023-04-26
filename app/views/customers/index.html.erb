@@ -6,6 +6,6 @@
         <li>Name: <%= link_to customer.name, customer %></li>
         <li>Email: <%= customer.email %></li>
         <li>Phone: <%= customer.phone %></li>
-        <li>Interested in: <%= customer.boattype %></li>
+        <li>Interested in: <%= customer.boattype.join(', ') %></li>
     </ul>
 <% end %>

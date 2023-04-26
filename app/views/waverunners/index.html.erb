@@ -1,0 +1,12 @@
+<h1>All Waverunners</h1>
+
+<% @waverunners.each do |waverunner| %>
+    
+    <ul>
+        <li>Brand: <%= waverunner.brand %> </li>
+        <li>Model: <%= link_to waverunner.model, waverunner %></li>
+        <li>Year: <%= waverunner.modelyear %></li>
+        <li>Colour: <%= waverunner.colour %></li>
+        <li>RRP: <%= waverunner.retailprice %></li>
+    </ul>
+<% end %>

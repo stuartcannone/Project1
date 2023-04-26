@@ -1,0 +1,20 @@
+<h1> <%= @accessory.brand %> <%= @accessory.model %>  </h1>
+
+    <ul>
+        <li>Brand: <%= @accessory.brand %></li>
+        <li>Model: <%= @accessory.model %></li>
+        <li>Category: <%= @accessory.category %></li>
+        <li>Description: <%= @accessory.description %></li>
+        <li>Part Number: <%= @accessory.partnumber %></li>
+        <li>Cost Price: $<%= @accessory.costprice %></li>
+        <li>Retail Price: $<%= @accessory.retailprice %></li>
+        <li>Link: <%= link_to @accessory.pagelink %></li>
+        
+    </ul>
+
+    <%= image_tag @accessory.image, :class => 'feature' if @accessory.image.present? %>
+
+    <div class="controls">
+    <%= link_to "Edit Accessory", edit_accessory_path(@accessory)%>
+    <%= button_to "Delete Accessory", @accessory, :method => :delete, :data => {:confirm => 'Are you sure'} %>
+    </div>

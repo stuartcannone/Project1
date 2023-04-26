@@ -1,0 +1,2 @@
+module WaverunnersHelper
+end

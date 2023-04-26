@@ -1,0 +1,12 @@
+<h1>All Accessories</h1>
+
+<% @accessories.each do |accessory| %>
+    
+    <ul>
+        <li>Brand: <%= accessory.brand %> </li>
+        <li>Model: <%= link_to accessory.model, accessory %></li>
+        <li>Category: <%= accessory.category %></li>
+        <li>Part Number: <%= accessory.partnumber %></li>
+        <li>RRP: <%= accessory.retailprice %></li>
+    </ul>
+<% end %>

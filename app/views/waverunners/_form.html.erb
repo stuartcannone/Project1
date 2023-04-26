@@ -1,0 +1,39 @@
+<%= form_for @waverunner do |f| %>
+    <%= f.label :brand  %>
+    <%= f.text_field :brand  %>
+
+    <%= f.label :model  %>
+    <%= f.text_field :model  %>
+
+    <%= f.label :modelyear, 'Year'  %>
+    <%= f.text_field :modelyear, :placeholder => '2023'  %>
+
+    <%= f.label :colour  %>
+    <%= f.text_field :colour  %>
+
+    <%= f.label :engine  %>
+    <%= f.select(:engine, options_for_select( [["SVHO 1.8L 4 Cylinder Supercharged", "SVHO"],["HO 1.8L 4 Cylinder Naturally Aspirated", "HO"], ["TR-1 1.0L 3 Cylinder Naturally Aspirated", "TR-1"]]))  %>
+
+    <%= f.label :seat  %>
+    <%= f.select(:seat, options_for_select( [["3 Seats Flat", "Flat 3"],["3 Seat Cruiser ", "Cruiser 3"], ["3 Seat Race Inspired", "Race 3"]]))%>
+
+    <%= f.label :modelcategory  %>
+    <%= f.select(:modelcategory, options_for_select( [["Luxury-Performance", "Luxury-Performance"],["Race Inspired", "Race Inspired"], ["Recreational", "Recreational"], ["Recreational Lites", "Recreational Lites"],["Freestyle", "Freestyle"]]))  %>
+
+    <%= f.label :image  %>
+    <%= f.text_field :image %>
+
+    <%= f.label :pagelink  %>
+    <%= f.text_field :pagelink %>
+
+    <%= f.label :modelcode  %>
+    <%= f.text_field :modelcode %>
+
+    <%= f.label :costprice  %>
+    <%= f.number_field :costprice, step: 0.01, precision: 2 %>
+
+    <%= f.label :retailprice  %>
+    <%= f.number_field :retailprice, step: 0.01, precision: 2 %>
+
+    <%= f.submit %>
+<% end %>

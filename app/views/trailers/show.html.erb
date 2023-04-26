@@ -1,0 +1,21 @@
+<h1> <%= @trailer.brand %> <%= @trailer.model %>  </h1>
+
+    <ul>
+        <li>Brand: <%= @trailer.brand %></li>
+        <li>Model: <%= @trailer.model %></li>
+        <li>Model Year: <%= @trailer.modelyear %></li>
+        <li>Usage: <%= @trailer.usage %></li>
+        <li>Material: <%= @trailer.material %></li>
+        <li>Colour: <%= @trailer.colour %></li>
+        <li>Cost Price: $<%= @trailer.costprice %></li>
+        <li>Retail Price: $<%= @trailer.retailprice %></li>
+        <li>Link: <%= link_to @trailer.pagelink %></li>
+        
+    </ul>
+
+    <%= image_tag @trailer.image, :class => 'feature' if @trailer.image.present? %>
+
+    <div class="controls">
+    <%= link_to "Edit Trailer", edit_trailer_path(@trailer)%>
+    <%= button_to "Delete Trailer", @trailer, :method => :delete, :data => {:confirm => 'Are you sure'} %>
+    </div>

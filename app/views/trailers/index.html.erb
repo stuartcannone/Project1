@@ -1,0 +1,12 @@
+<h1>All Trailers</h1>
+
+<% @trailers.each do |trailer| %>
+    
+    <ul>
+        <li>Brand: <%= trailer.brand %> </li>
+        <li>Model: <%= link_to trailer.model, trailer %></li>
+        <li>Year: <%= trailer.modelyear %></li>
+        <li>Colour: <%= trailer.colour %></li>
+        <li>RRP: <%= trailer.retailprice %></li>
+    </ul>
+<% end %>

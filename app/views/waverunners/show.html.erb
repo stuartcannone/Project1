@@ -1,0 +1,22 @@
+<h1><%= @waverunner.modelyear %> <%= @waverunner.brand %> <%= @waverunner.model %>  </h1>
+
+    <ul>
+        <li>Brand: <%= @waverunner.brand %></li>
+        <li>Model: <%= @waverunner.model %></li>
+        <li>Model Year: <%= @waverunner.modelyear %></li>
+        <li>Engine: <%= @waverunner.engine %></li>
+        <li>Seat Configuration: <%= @waverunner.seat %></li>
+        <li>Colour: <%= @waverunner.colour %></li>
+        <li>Model Category: <%= @waverunner.modelcategory %></li>
+        <li>Cost Price: $<%= @waverunner.costprice %></li>
+        <li>Retail Price: $<%= @waverunner.retailprice %></li>
+        <li>Link: <%= link_to @waverunner.pagelink %></li>
+        
+    </ul>
+
+    <%= image_tag @waverunner.image, :class => 'feature' if @waverunner.image.present? %>
+
+    <div class="controls">
+    <%= link_to "Edit Waverunner", edit_waverunner_path(@waverunner)%>
+    <%= button_to "Delete Waverunner", @waverunner, :method => :delete, :data => {:confirm => 'Are you sure'} %>
+    </div>

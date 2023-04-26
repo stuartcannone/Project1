@@ -5,11 +5,11 @@
         <li>Email: <%= @customer.email %></li>
         <li>Phone: <%= @customer.phone %></li>
         <li>Postcode: <%= @customer.postcode %></li>
-        <li>Age Range: <%= @customer.agerange %></li>
+        <li>Age Range: <%= @customer.agerange%></li>
         <li>Purchase Timeframe: <%= @customer.purchasetime %></li>
         <li>Boating Experince Level: <%= @customer.experience %></li>
         <li>Customer Ownership Status: <%= @customer.ownershipstatus %></li>
-        <li>Boat Types Interested in: <%= @customer.boattype %></li>
+        <li>Boat Types Interested in: <%= @customer.boattype.join(', ') %></li>
         <li>Test Drive Required: <%= @customer.testdrive %></li>
         <li>Notes: <%= @customer.notes %></li>
         
@@ -21,4 +21,6 @@
     <div class="controls">
     <%= link_to "Edit Customer", edit_customer_path(@customer)%>
     <%= button_to "Delete Customer", @customer, :method => :delete, :data => {:confirm => 'Are you sure'} %>
+
+    <%= link_to "Generate Quote", quote_customer_path(@customer)%>
     </div>
