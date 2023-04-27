@@ -1,33 +1,34 @@
-<%= form_for @trailer do |f| %>
+<%= form_for(@trailer, :html => {:multipart => true}) do |f| %>
     <%= f.label :brand  %>
-    <%= f.text_field :brand  %>
+    <%= f.text_field :brand, value: @trailer.brand  %>
 
     <%= f.label :model  %>
-    <%= f.text_field :model  %>
+    <%= f.text_field :model, value: @trailer.model   %>
 
     <%= f.label :modelyear, 'Year'  %>
-    <%= f.text_field :modelyear, :placeholder => '2023'  %>
+    <%= f.text_field :modelyear, :placeholder => '2023', value: @trailer.modelyear   %>
 
     <%= f.label :colour  %>
-    <%= f.text_field :colour  %>
+    <%= f.text_field :colour, value: @trailer.colour  %>
 
     <%= f.label :usage  %>
-    <%= f.select(:usage, options_for_select( [["PWC", "PWC"],["Boat", "Boat"]]))  %>
+    <%= f.select(:usage, options_for_select([["PWC", "PWC"], ["Boat", "Boat"]], selected: @trailer.usage)) %>
+
 
     <%= f.label :material  %>
-    <%= f.select(:material, options_for_select( [["Galvanised Steel", "Galvanised Steel"],["Powder Coat Steel ", "Powder Coat Steel"], ["Aluminium", "Aluminium"]]))%>
+    <%= f.select(:material, options_for_select( [["Galvanised Steel", "Galvanised Steel"],["Powder Coat Steel ", "Powder Coat Steel"], ["Aluminium", "Aluminium"]], selected: @trailer.material))%>
 
     <%= f.label :image  %>
-    <%= f.text_field :image %>
+    <%= f.cl_image_upload :image, value: @trailer.image %>
 
     <%= f.label :pagelink  %>
-    <%= f.text_field :pagelink %>
+    <%= f.text_field :pagelink, value: @trailer.pagelink  %>
 
     <%= f.label :costprice  %>
-    <%= f.number_field :costprice, step: 0.01, precision: 2 %>
+    <%= f.number_field :costprice, step: 0.01, precision: 2, value: @trailer.costprice  %>
 
     <%= f.label :retailprice  %>
-    <%= f.number_field :retailprice, step: 0.01, precision: 2 %>
+    <%= f.number_field :retailprice, step: 0.01, precision: 2, value: @trailer.retailprice  %>
 
     <%= f.submit %>
 <% end %>

@@ -1,39 +1,39 @@
-<%= form_for @waverunner do |f| %>
+<%= form_for(@waverunner, :html => {:multipart => true}) do |f| %>
     <%= f.label :brand  %>
-    <%= f.text_field :brand  %>
+    <%= f.text_field :brand, value: @waverunner.brand   %>
 
     <%= f.label :model  %>
-    <%= f.text_field :model  %>
+    <%= f.text_field :model, value: @waverunner.model   %>
 
     <%= f.label :modelyear, 'Year'  %>
-    <%= f.text_field :modelyear, :placeholder => '2023'  %>
+    <%= f.text_field :modelyear, :placeholder => '2023', value: @waverunner.modelyear   %>
 
     <%= f.label :colour  %>
-    <%= f.text_field :colour  %>
+    <%= f.text_field :colour, value: @waverunner.colour  %>
 
     <%= f.label :engine  %>
-    <%= f.select(:engine, options_for_select( [["SVHO 1.8L 4 Cylinder Supercharged", "SVHO"],["HO 1.8L 4 Cylinder Naturally Aspirated", "HO"], ["TR-1 1.0L 3 Cylinder Naturally Aspirated", "TR-1"]]))  %>
+    <%= f.select(:engine, options_for_select( [["SVHO 1.8L 4 Cylinder Supercharged", "SVHO 1.8L 4 Cylinder Supercharged"],["HO 1.8L 4 Cylinder Naturally Aspirated", "HO 1.8L 4 Cylinder Naturally Aspirated"], ["TR-1 1.0L 3 Cylinder Naturally Aspirated", "TR-1 1.0L 3 Cylinder Naturally Aspirated"]], selected: @waverunner.engine))  %>
 
     <%= f.label :seat  %>
-    <%= f.select(:seat, options_for_select( [["3 Seats Flat", "Flat 3"],["3 Seat Cruiser ", "Cruiser 3"], ["3 Seat Race Inspired", "Race 3"]]))%>
+    <%= f.select(:seat, options_for_select( [["3 Seats Flat", "3 Seats Flat"],["3 Seat Cruiser ", "3 Seat Cruiser"], ["3 Seat Race Inspired", "3 Seat Race Inspired"]], selected: @waverunner.seat)) %>
 
     <%= f.label :modelcategory  %>
-    <%= f.select(:modelcategory, options_for_select( [["Luxury-Performance", "Luxury-Performance"],["Race Inspired", "Race Inspired"], ["Recreational", "Recreational"], ["Recreational Lites", "Recreational Lites"],["Freestyle", "Freestyle"]]))  %>
+    <%= f.select(:modelcategory, options_for_select( [["Luxury-Performance", "Luxury-Performance"],["Race Inspired", "Race Inspired"], ["Recreational", "Recreational"], ["Recreational Lites", "Recreational Lites"],["Freestyle", "Freestyle"]], selected: @waverunner.modelcategory))  %>
 
     <%= f.label :image  %>
-    <%= f.text_field :image %>
+    <%= f.cl_image_upload :image, value: @waverunner.image %>
 
     <%= f.label :pagelink  %>
-    <%= f.text_field :pagelink %>
+    <%= f.text_field :pagelink, value: @waverunner.pagelink %>
 
     <%= f.label :modelcode  %>
-    <%= f.text_field :modelcode %>
+    <%= f.text_field :modelcode, value: @waverunner.modelcode  %>
 
     <%= f.label :costprice  %>
-    <%= f.number_field :costprice, step: 0.01, precision: 2 %>
+    <%= f.number_field :costprice, step: 0.01, precision: 2, value: @waverunner.costprice %>
 
     <%= f.label :retailprice  %>
-    <%= f.number_field :retailprice, step: 0.01, precision: 2 %>
+    <%= f.number_field :retailprice, step: 0.01, precision: 2, value: @waverunner.retailprice %>
 
     <%= f.submit %>
 <% end %>

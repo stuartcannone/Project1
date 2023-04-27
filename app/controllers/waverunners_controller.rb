@@ -9,6 +9,11 @@ class WaverunnersController < ApplicationController
   
   def create
     waverunner = Waverunner.create waverunner_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      waverunner.image = req["public_id"]
+      waverunner.save
+    end
     redirect_to waverunner
   end
 
@@ -18,7 +23,13 @@ class WaverunnersController < ApplicationController
 
   def update
     waverunner = Waverunner.find params[:id]
-    waverunner.update waverunner_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      waverunner.image = req["public_id"]
+      
+    end
+    waverunner.update_attributes waverunner_params
+    waverunner.save
     redirect_to waverunner
   end
 

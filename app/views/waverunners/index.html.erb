@@ -1,12 +1,26 @@
-<h1>All Waverunners</h1>
-
-<% @waverunners.each do |waverunner| %>
-    
-    <ul>
-        <li>Brand: <%= waverunner.brand %> </li>
-        <li>Model: <%= link_to waverunner.model, waverunner %></li>
-        <li>Year: <%= waverunner.modelyear %></li>
-        <li>Colour: <%= waverunner.colour %></li>
-        <li>RRP: <%= waverunner.retailprice %></li>
-    </ul>
+<% @waverunners.group_by(&:modelcategory).each do |category, waverunners| %>
+  <div class="category">
+    <h2><%= category %></h2>
+    <div id="carousel-<%= category %>" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <% waverunners.each_with_index do |waverunner, index| %>
+          <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+            <%= cl_image_tag waverunner.image %>
+            <div class="carousel-caption d-none d-md-block">
+              <%= button_to waverunner.model, waverunner, method: :get, class: "btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <a class="carousel-control-prev" href="#carousel-<%= category %>" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carousel-<%= category %>" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
 <% end %>
+

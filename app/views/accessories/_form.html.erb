@@ -1,30 +1,30 @@
-<%= form_for @accessory do |f| %>
+<%= form_for(@accessory, :html => {:multipart => true}) do |f| %>
     <%= f.label :brand  %>
-    <%= f.text_field :brand  %>
+    <%= f.text_field :brand, value: @accessory.brand %>
 
     <%= f.label :model  %>
-    <%= f.text_field :model  %>
+    <%= f.text_field :model, value: @accessory.model  %>
 
     <%= f.label :category  %>
-    <%= f.text_field :category  %>
+    <%= f.text_field :category, value: @accessory.category  %>
 
     <%= f.label :description  %>
-    <%= f.text_field :description  %>
+    <%= f.text_field :description, value: @accessory.description  %>
 
     <%= f.label :partnumber  %>
-    <%= f.text_field :partnumber  %>
+    <%= f.text_field :partnumber, value: @accessory.partnumber   %>
 
     <%= f.label :image  %>
-    <%= f.text_field :image %>
+    <%= f.cl_image_upload :image, value: @accessory.image %>
 
     <%= f.label :pagelink  %>
-    <%= f.text_field :pagelink %>
+    <%= f.text_field :pagelink, value: @accessory.pagelink  %>
 
     <%= f.label :costprice  %>
-    <%= f.number_field :costprice, step: 0.01, precision: 2 %>
+    <%= f.number_field :costprice, step: 0.01, precision: 2, value: @accessory.costprice  %>
 
     <%= f.label :retailprice  %>
-    <%= f.number_field :retailprice, step: 0.01, precision: 2 %>
+    <%= f.number_field :retailprice, step: 0.01, precision: 2, value: @accessory.retailprice %>
 
     <%= f.submit %>
 <% end %>

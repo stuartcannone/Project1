@@ -52,3 +52,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'ransack', '~> 1.7'
 gem 'polyamorous', '~> 1.3'
+gem 'bootstrap'
+gem 'swiper-rails'

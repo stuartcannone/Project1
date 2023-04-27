@@ -18,7 +18,13 @@ class AccessoriesController < ApplicationController
 
   def update
     accessory = Accessory.find params[:id]
-    accessory.update accessory_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      accessory.image = req["public_id"]
+      
+    end
+    accessory.update_attributes accessory_params
+    accessory.save
     redirect_to accessory
   end
 

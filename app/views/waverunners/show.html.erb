@@ -14,7 +14,7 @@
         
     </ul>
 
-    <%= image_tag @waverunner.image, :class => 'feature' if @waverunner.image.present? %>
+    <%= cl_image_tag @waverunner.image, :class => 'feature' if @waverunner.image.present? %>
 
     <div class="controls">
     <%= link_to "Edit Waverunner", edit_waverunner_path(@waverunner)%>

@@ -13,7 +13,7 @@
         
     </ul>
 
-    <%= image_tag @trailer.image, :class => 'feature' if @trailer.image.present? %>
+    <%= cl_image_tag @trailer.image, :class => 'feature' if @trailer.image.present? %>
 
     <div class="controls">
     <%= link_to "Edit Trailer", edit_trailer_path(@trailer)%>

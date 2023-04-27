@@ -12,7 +12,7 @@
         
     </ul>
 
-    <%= image_tag @accessory.image, :class => 'feature' if @accessory.image.present? %>
+    <%= cl_image_tag @accessory.image, :class => 'feature' if @accessory.image.present? %>
 
     <div class="controls">
     <%= link_to "Edit Accessory", edit_accessory_path(@accessory)%>

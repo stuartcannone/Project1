@@ -9,6 +9,11 @@ class TrailersController < ApplicationController
   
   def create
     trailer = Trailer.create trailer_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      trailer.image = req["public_id"]
+      trailer.save
+    end
     redirect_to trailer
   end
 
@@ -18,7 +23,12 @@ class TrailersController < ApplicationController
 
   def update
     trailer = Trailer.find params[:id]
-    trailer.update trailer_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      trailer.image = req["public_id"]
+    end
+    trailer.update_attributes trailer_params
+    trailer.save
     redirect_to trailer
   end
 

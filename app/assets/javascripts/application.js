@@ -15,4 +15,5 @@
 // require jquery
 // require popper
 // require bootstrap
+//= require swiper
 //= require_tree .
