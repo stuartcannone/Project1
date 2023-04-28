@@ -76,21 +76,7 @@ ActiveRecord::Schema.define(version: 2023_04_26_023156) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "waverunners", force: :cascade do |t|
-    t.text "brand"
-    t.text "model"
-    t.text "modelyear"
-    t.text "engine"
-    t.text "seat"
-    t.text "colour"
-    t.text "modelcategory"
-    t.text "image"
-    t.text "pagelink"
-    t.text "modelcode"
-    t.decimal "costprice", precision: 12, scale: 2
-    t.decimal "retailprice", precision: 12, scale: 2
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  interests
   end
 
 end

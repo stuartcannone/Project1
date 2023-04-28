@@ -1,12 +1,27 @@
 <h1>All Accessories</h1>
 
-<% @accessories.each do |accessory| %>
-    
-    <ul>
-        <li>Brand: <%= accessory.brand %> </li>
-        <li>Model: <%= link_to accessory.model, accessory %></li>
-        <li>Category: <%= accessory.category %></li>
-        <li>Part Number: <%= accessory.partnumber %></li>
-        <li>RRP: <%= accessory.retailprice %></li>
-    </ul>
+<% @accessories.group_by(&:category).each do |category, accessories| %>
+<div class="category">
+    <h2><%= category %></h2>
+    <div id="carousel-<%= category %>" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <% accessories.each_with_index do |accessory, index| %>
+        <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+            <%= cl_image_tag accessory.image %>
+            <div class="carousel-caption d-flex justify-content-center">
+            <%= button_to accessory.model, accessory, method: :get, class: "btn btn-primary" %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carousel-<%= category %>" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-<%= category %>" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </div>
+</div>
 <% end %>

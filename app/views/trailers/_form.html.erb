@@ -1,3 +1,5 @@
+<div class="form-group">
+
 <%= form_for(@trailer, :html => {:multipart => true}) do |f| %>
     <%= f.label :brand  %>
     <%= f.text_field :brand, value: @trailer.brand  %>
@@ -32,3 +34,4 @@
 
     <%= f.submit %>
 <% end %>
+</div>

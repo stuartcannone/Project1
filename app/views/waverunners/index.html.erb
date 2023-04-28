@@ -1,3 +1,5 @@
+<h1>All Waverunners</h1>
+
 <% @waverunners.group_by(&:modelcategory).each do |category, waverunners| %>
   <div class="category">
     <h2><%= category %></h2>
@@ -6,9 +8,10 @@
         <% waverunners.each_with_index do |waverunner, index| %>
           <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
             <%= cl_image_tag waverunner.image %>
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-flex justify-content-center">
               <%= button_to waverunner.model, waverunner, method: :get, class: "btn btn-primary" %>
             </div>
+
           </div>
         <% end %>
       </div>
